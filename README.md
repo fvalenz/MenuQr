@@ -93,18 +93,43 @@ const menu = {
 
 ---
 
-## 🚀 Cómo publicarlo gratis en GitHub Pages
+## 🚀 Cómo publicarlo gratis
 
-1. Sube el proyecto a un repositorio de GitHub.
-2. En GitHub, ve a **Settings → Pages**.
-3. En **Source**, elige la rama (por ejemplo `main`) y la carpeta `/ (root)`.
-4. Guarda. En un par de minutos tu menú estará disponible en:
+El sitio es 100% estático, así que se publica sin build. Tienes dos opciones gratuitas y permanentes:
+
+### Opción 1 · GitHub Pages
+
+1. Sube el proyecto a un repositorio **público** de GitHub.
+2. Ve a **Settings → Pages**.
+3. En **Source**, elige **Deploy from a branch**, rama `main` y carpeta `/ (root)`.
+4. Guarda. En un par de minutos tu menú estará en:
 
    ```
    https://TU-USUARIO.github.io/TU-REPOSITORIO/
    ```
 
-5. Genera un **código QR** con esa URL (por ejemplo en un generador de QR gratuito) e imprímelo para las mesas. 🎉
+> GitHub Pages es gratis y permanente para repositorios públicos (no caduca). El método "Deploy from a branch" no requiere workflows ni permisos especiales.
+
+### Opción 2 · Netlify
+
+1. Entra a [netlify.com](https://www.netlify.com) y crea una cuenta (puedes usar tu login de GitHub).
+2. **Add new site → Import an existing project → GitHub** y elige este repositorio.
+3. Netlify lee el archivo `netlify.toml` incluido: **sin comando de build** y **carpeta de publicación = raíz**. Solo pulsa **Deploy**.
+4. Tu menú quedará en una URL tipo:
+
+   ```
+   https://TU-SITIO.netlify.app
+   ```
+
+   (puedes renombrar el subdominio en *Site settings → Change site name*).
+
+Cada vez que hagas *push* a `main`, Netlify vuelve a desplegar solo.
+
+---
+
+## 📱 Generar el código QR
+
+Con la URL pública (de Pages o Netlify), genera un **código QR** en cualquier generador gratuito e imprímelo para las mesas. 🎉
 
 ---
 

@@ -1,0 +1,6 @@
+# Configuración de Netlify para un sitio estático (sin build).
+# Publica el contenido del repositorio tal cual.
+
+[build]
+  publish = "."
+  command = ""
