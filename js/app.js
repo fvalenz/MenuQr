@@ -17,7 +17,7 @@ const menu = {
       icono: "bi-egg",
       platos: [
         {
-          img: "img/huevo-relleno.svg",
+          img: "img/huevos.jpg",
           nombre: "Huevo Relleno",
           descripcion:
             "Huevo cocido relleno de una cremosa mezcla de yema, mostaza y un toque de pimentón.",
@@ -31,7 +31,7 @@ const menu = {
       icono: "bi-egg-fried",
       platos: [
         {
-          img: "img/silpancho.svg",
+          img: "img/silpancho.jpg",
           nombre: "Silpancho",
           descripcion:
             "Milanesa de carne apanada sobre arroz y papa, coronada con huevo frito y ensalada fresca.",
@@ -45,7 +45,7 @@ const menu = {
       icono: "bi-cup-straw",
       platos: [
         {
-          img: "img/gelatina.svg",
+          img: "img/gelatina.jpg",
           nombre: "Gelatina",
           descripcion:
             "Refrescante gelatina de frutos rojos, servida bien fría en copa de cristal.",
