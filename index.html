@@ -32,13 +32,20 @@
   </head>
 
   <body>
+    <!-- ============ PRELOADER ============ -->
+    <div id="preloader" class="preloader" role="status" aria-live="polite" aria-label="Cargando el menú">
+      <img class="preloader__logo" src="img/logo.png" alt="" width="900" height="600" />
+      <span class="preloader__spinner" aria-hidden="true"></span>
+      <p class="preloader__text">Preparando el menú…</p>
+    </div>
+
     <!-- ============ ENCABEZADO ============ -->
     <header class="hero text-center">
       <div class="container">
-        <p class="hero__eyebrow">
+        <p class="hero__eyebrow fade-in">
           <i class="bi bi-egg-fried"></i> Menú de la casa
         </p>
-        <h1 class="hero__logo-wrap">
+        <h1 class="hero__logo-wrap fade-in">
           <img
             class="hero__logo"
             src="img/logo.png"
@@ -47,7 +54,7 @@
             height="600"
           />
         </h1>
-        <p class="hero__subtitle">Cocina casera · Hecho con cariño</p>
+        <p class="hero__subtitle fade-in">Cocina casera · Hecho con cariño</p>
       </div>
     </header>
 
@@ -60,11 +67,11 @@
     <!-- ============ PIE ============ -->
     <footer class="footer text-center">
       <div class="container">
-        <p class="footer__brand">A Mi Antojo</p>
-        <p class="footer__note">
+        <p class="footer__brand fade-in">A Mi Antojo</p>
+        <p class="footer__note fade-in">
           <i class="bi bi-geo-alt-fill"></i> Escanea, elige y disfruta
         </p>
-        <p class="footer__copy">&copy; <span id="year"></span> · Menú digital</p>
+        <p class="footer__copy fade-in">&copy; <span id="year"></span> · Menú digital</p>
       </div>
     </footer>
 

@@ -113,7 +113,7 @@ function sectionHead(titulo, icono, banner) {
           <img class="section-banner" src="${banner}" alt="${titulo}" loading="lazy" />
         </h2>`
     : `<h2 class="section-title"><i class="bi ${icono}"></i>${titulo}</h2>`;
-  return `<div class="section-head">${inner}</div>`;
+  return `<div class="section-head fade-in">${inner}</div>`;
 }
 
 /** Sección de platos con su encabezado. */
@@ -171,9 +171,13 @@ function renderMenu() {
   root.innerHTML = html;
 }
 
-/* ---------- 4. Animación fade-in al hacer scroll ---------- */
-function initFadeIn() {
-  const items = document.querySelectorAll(".fade-in");
+/* ---------- 4. Animación de entrada (fade-in) ---------- */
+let revealed = false;
+
+/** Observa todos los elementos .fade-in y los revela al entrar en pantalla. */
+function revealContent() {
+  if (revealed) return;
+  revealed = true;
 
   const observer = new IntersectionObserver(
     (entries, obs) => {
@@ -187,13 +191,33 @@ function initFadeIn() {
     { threshold: 0.15 }
   );
 
-  items.forEach((item) => observer.observe(item));
+  document
+    .querySelectorAll(".fade-in")
+    .forEach((item) => observer.observe(item));
 }
 
-/* ---------- 5. Inicio ---------- */
+/* ---------- 5. Preloader ---------- */
+function hidePreloader() {
+  const pre = document.getElementById("preloader");
+  if (pre) {
+    pre.classList.add("is-hidden");
+    pre.addEventListener("transitionend", () => pre.remove(), { once: true });
+  }
+  // Revela el contenido justo cuando el preloader se retira.
+  revealContent();
+}
+
+function initPreloader() {
+  // Oculta cuando todo (imágenes incl.) haya cargado.
+  window.addEventListener("load", hidePreloader);
+  // Red de seguridad: nunca dejar el preloader más de 5 s.
+  setTimeout(hidePreloader, 5000);
+}
+
+/* ---------- 6. Inicio ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   renderMenu();
-  initFadeIn();
+  initPreloader();
 
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
