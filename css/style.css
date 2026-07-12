@@ -130,6 +130,19 @@ body::before {
   margin-bottom: 1.75rem;
 }
 
+/* Banner de sección tipo cinta (imagen con fondo transparente) */
+.section-banner-wrap {
+  margin: 0;
+}
+
+.section-banner {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto;
+}
+
 /* ============ 5. TARJETAS DE PLATOS ============ */
 .dish-card {
   background: var(--negro-suave);
