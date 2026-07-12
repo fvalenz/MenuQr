@@ -137,9 +137,10 @@ body::before {
 
 .section-banner {
   display: block;
-  width: 100%;
-  max-width: 320px;
+  width: auto;
   height: auto;
+  max-height: 70px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -317,6 +318,10 @@ body::before {
 
   .section-title {
     font-size: 1.75rem;
+  }
+
+  .section-banner {
+    max-height: 88px;
   }
 
   .menu {

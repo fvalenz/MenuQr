@@ -30,6 +30,7 @@ const menu = {
       id: "plato-principal",
       titulo: "Plato Principal",
       icono: "bi-egg-fried",
+      banner: "img/plato-principal.png",
       platos: [
         {
           img: "img/silpancho.jpg",
@@ -44,6 +45,7 @@ const menu = {
       id: "postre",
       titulo: "Postre",
       icono: "bi-cup-straw",
+      banner: "img/postre.png",
       platos: [
         {
           img: "img/gelatina.jpg",
