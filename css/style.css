@@ -6,13 +6,14 @@
    Índice
    1. Variables y base
    2. Fondo tipo pizarra
-   3. Encabezado (hero)
-   4. Secciones del menú
-   5. Tarjetas de platos
-   6. Bebidas
-   7. Pie de página
-   8. Animaciones
-   9. Responsive (tablet / escritorio)
+   3. Preloader
+   4. Encabezado (hero)
+   5. Secciones del menú
+   6. Tarjetas de platos
+   7. Bebidas
+   8. Pie de página
+   9. Animaciones
+   10. Responsive (tablet / escritorio)
    ========================================================= */
 
 /* ============ 1. VARIABLES Y BASE ============ */
@@ -64,10 +65,84 @@ body::before {
   position: relative;
 }
 
-/* ============ 3. ENCABEZADO (HERO) ============ */
+/* ============ 3. PRELOADER ============ */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: var(--negro);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.preloader__logo {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  animation: preloader-pulse 1.8s ease-in-out infinite;
+}
+
+.preloader__spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid rgba(212, 175, 55, 0.25);
+  border-top-color: var(--dorado);
+  animation: preloader-spin 0.9s linear infinite;
+}
+
+.preloader__text {
+  margin: 0;
+  font-family: var(--fuente-script);
+  font-size: 1.4rem;
+  color: var(--dorado);
+}
+
+@keyframes preloader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes preloader-pulse {
+  0%,
+  100% {
+    opacity: 0.85;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+/* ============ 4. ENCABEZADO (HERO) ============ */
 .hero {
   padding: 3rem 1rem 2rem;
   border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+/* Aparición escalonada de los elementos del encabezado */
+.hero__eyebrow.fade-in {
+  transition-delay: 0.1s;
+}
+
+.hero__logo-wrap.fade-in {
+  transition-delay: 0.25s;
+}
+
+.hero__subtitle.fade-in {
+  transition-delay: 0.45s;
 }
 
 .hero__eyebrow {
@@ -97,7 +172,7 @@ body::before {
   margin: 0;
 }
 
-/* ============ 4. SECCIONES DEL MENÚ ============ */
+/* ============ 5. SECCIONES DEL MENÚ ============ */
 .menu {
   padding: 2.5rem 1rem 1rem;
   max-width: 960px;
@@ -144,7 +219,7 @@ body::before {
   margin: 0 auto;
 }
 
-/* ============ 5. TARJETAS DE PLATOS ============ */
+/* ============ 6. TARJETAS DE PLATOS ============ */
 .dish-card {
   background: var(--negro-suave);
   border: 1px solid rgba(212, 175, 55, 0.2);
@@ -208,7 +283,7 @@ body::before {
   padding-top: 0.75rem;
 }
 
-/* ============ 6. BEBIDAS ============ */
+/* ============ 7. BEBIDAS ============ */
 .drink-card {
   background: var(--negro-suave);
   border: 1px solid rgba(212, 175, 55, 0.2);
@@ -259,7 +334,7 @@ body::before {
   white-space: nowrap;
 }
 
-/* ============ 7. PIE DE PÁGINA ============ */
+/* ============ 8. PIE DE PÁGINA ============ */
 .footer {
   padding: 2.5rem 1rem 3rem;
   border-top: 1px solid rgba(212, 175, 55, 0.25);
@@ -285,7 +360,7 @@ body::before {
   margin: 0;
 }
 
-/* ============ 8. ANIMACIONES ============ */
+/* ============ 9. ANIMACIONES ============ */
 /* Fade in suave al aparecer en pantalla */
 .fade-in {
   opacity: 0;
@@ -308,9 +383,18 @@ body::before {
     opacity: 1;
     transform: none;
   }
+
+  .preloader__logo,
+  .preloader__spinner {
+    animation-duration: 2.5s;
+  }
+
+  .preloader__logo {
+    animation: none;
+  }
 }
 
-/* ============ 9. RESPONSIVE ============ */
+/* ============ 10. RESPONSIVE ============ */
 @media (min-width: 768px) {
   .hero {
     padding: 4rem 1rem 2.5rem;
