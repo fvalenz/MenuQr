@@ -10,6 +10,7 @@
    Las bebidas usan una lista de opciones. */
 const menu = {
   moneda: "Bs",
+  bebidasBanner: "img/bebidas.png",
   secciones: [
     {
       id: "entrada",
