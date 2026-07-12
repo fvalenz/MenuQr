@@ -15,9 +15,10 @@ const menu = {
       id: "entrada",
       titulo: "Entrada",
       icono: "bi-egg",
+      banner: "img/entrada.png",
       platos: [
         {
-          img: "img/huevo-relleno.svg",
+          img: "img/huevos.jpg",
           nombre: "Huevo Relleno",
           descripcion:
             "Huevo cocido relleno de una cremosa mezcla de yema, mostaza y un toque de pimentón.",
@@ -29,9 +30,10 @@ const menu = {
       id: "plato-principal",
       titulo: "Plato Principal",
       icono: "bi-egg-fried",
+      banner: "img/plato-principal.png",
       platos: [
         {
-          img: "img/silpancho.svg",
+          img: "img/silpancho.jpg",
           nombre: "Silpancho",
           descripcion:
             "Milanesa de carne apanada sobre arroz y papa, coronada con huevo frito y ensalada fresca.",
@@ -43,9 +45,10 @@ const menu = {
       id: "postre",
       titulo: "Postre",
       icono: "bi-cup-straw",
+      banner: "img/postre.png",
       platos: [
         {
-          img: "img/gelatina.svg",
+          img: "img/gelatina.jpg",
           nombre: "Gelatina",
           descripcion:
             "Refrescante gelatina de frutos rojos, servida bien fría en copa de cristal.",
@@ -102,15 +105,21 @@ function dishCard(plato) {
     </div>`;
 }
 
+/** Encabezado de sección: usa la imagen de banner si existe, si no el badge. */
+function sectionHead(titulo, icono, banner) {
+  const inner = banner
+    ? `<h2 class="section-banner-wrap">
+          <img class="section-banner" src="${banner}" alt="${titulo}" loading="lazy" />
+        </h2>`
+    : `<h2 class="section-title"><i class="bi ${icono}"></i>${titulo}</h2>`;
+  return `<div class="section-head">${inner}</div>`;
+}
+
 /** Sección de platos con su encabezado. */
 function dishSection(seccion) {
   return `
     <section class="menu-section" id="${seccion.id}">
-      <div class="section-head">
-        <h2 class="section-title">
-          <i class="bi ${seccion.icono}"></i>${seccion.titulo}
-        </h2>
-      </div>
+      ${sectionHead(seccion.titulo, seccion.icono, seccion.banner)}
       <div class="row g-4 justify-content-center">
         ${seccion.platos.map(dishCard).join("")}
       </div>
@@ -144,11 +153,7 @@ function drinkCard(bebida) {
 function drinksSection() {
   return `
     <section class="menu-section" id="bebidas">
-      <div class="section-head">
-        <h2 class="section-title">
-          <i class="bi bi-cup-straw"></i>Bebidas
-        </h2>
-      </div>
+      ${sectionHead("Bebidas", "bi-cup-straw", menu.bebidasBanner)}
       <div class="row g-4 justify-content-center">
         ${menu.bebidas.map(drinkCard).join("")}
       </div>
