@@ -9,7 +9,7 @@
    Cada plato: imagen, nombre, descripción y precio.
    Las bebidas usan una lista de opciones. */
 const menu = {
-  moneda: "Bs",
+  moneda: "Ars",
   bebidasBanner: "img/bebidas.png",
   secciones: [
     {
